@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import { useForm } from "./hooks/UseForms";
 import countStrings  from "./logic/WordCounter";
 import CSS from 'csstype';
@@ -10,6 +8,7 @@ function Form() {
     };
 
     const countInitialState = '-';
+    const error = "Error: please insert some word on the text box"
 
     const textAreaLabel = 'counterLabel';
 
@@ -20,7 +19,17 @@ function Form() {
 
     async function formCallback() {
         console.log("Will count words on text box")
-        countStrings(values, textAreaLabel)
+        const count = countStrings(values)
+        const label = document.getElementById(
+            textAreaLabel,
+          ) as HTMLDivElement | null;
+        if (label) {
+            if (count && count > 0) {
+                label.textContent = count.toString()
+            } else {
+                label.textContent = error
+            }    
+        }
     }
 
     const textAreaStyle: CSS.Properties = {
@@ -30,7 +39,6 @@ function Form() {
             overflowY:'scroll',
             overflowX:'scroll',
             overflow:'scroll'
-
       };
 
     return (
@@ -45,7 +53,7 @@ function Form() {
                 id='text'
                 placeholder='Text'
                 onChange={onChange}
-                form="novalidateform"
+                form='novalidateform'
                 style={textAreaStyle}
                 />
             <br></br>

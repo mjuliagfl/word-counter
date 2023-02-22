@@ -1,5 +1,4 @@
-const error = "Error: please insert some word on the text box"
-function countStrings(values: Object, elementId: string) {
+function countStrings(values: Object) {
     if ('text' in values) {
         const t = values['text']
         if (typeof t === "string") {
@@ -10,16 +9,7 @@ function countStrings(values: Object, elementId: string) {
                     count = count + 1
                 }
             }
-            const label = document.getElementById(
-                elementId,
-              ) as HTMLDivElement | null;
-            if (label) {
-                if (count > 0) {
-                    label.textContent = count.toString()
-                } else {
-                    label.textContent = error
-                }    
-            }
+            return count
         }
     }
 };
