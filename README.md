@@ -7,7 +7,7 @@ I've architectured this simple project using react and typescript, I used hooks 
 Please note that I'm currently a backend engineer, so frontend in general is not my expertise, but I've tried to build the project the best way I could.
 
 ## Requirements
-To be able to run this project, you must have `yarn` installed.
+To be able to run this project, you must have [`yarn`](https://classic.yarnpkg.com/lang/en/docs/install/#mac-stable) and [`npm`](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) installed.
 
 ## Available Commands
 
